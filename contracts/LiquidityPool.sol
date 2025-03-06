@@ -77,4 +77,8 @@ contract LiquidityPool is ERC20 {
 
         require(tokenA.transfer(msg.sender, tokenAOut), "Failed Transfer TokenA");
     }
+
+    function getReserves() external view returns (uint256, uint256) {
+        return (reserveA, reserveB);
+    }
 }
