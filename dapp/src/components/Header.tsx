@@ -1,9 +1,10 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box, Button, Flex, Image } from "@chakra-ui/react";
 import { MenuContent, MenuRoot, MenuTrigger } from "@/components/ui/menu";
 import MenuButton from "./MenuButton";
 import { Dispatch, SetStateAction } from "react";
 import { JsonRpcSigner } from "ethers";
 import MetaMaskButton from "./MetamaskButton";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   signer: JsonRpcSigner | null;
@@ -15,19 +16,60 @@ function Header({ signer, setSigner }: HeaderProps) {
     <Box as="header" bgColor="blue.200" py={4}>
       <Flex justifyContent="space-between" alignItems="center" maxW={1024} mx="auto">
         <Box fontSize="2xl" fontWeight="semibold" color="gray.700">
-          BCSwap
+          <Link to="/">
+            <Image src="./public\bcs.png"></Image>
+          </Link>
         </Box>
 
         <MenuRoot>
           <MenuTrigger asChild>
             <Button colorPalette="blue" variant="ghost" size="sm">
-              Menu
+              Trade
             </Button>
           </MenuTrigger>
 
           <MenuContent bgColor="blue.50">
-            <MenuButton value="💰 Swap Token" href="/" />
-            <MenuButton value="🏛️ Liquidity Pool" href="/liquidity" />
+            <MenuButton value="Swap Token" href="/" />
+            <MenuButton value="Oder" href="/" />
+            <MenuButton value="Send " href="/" />
+            <MenuButton value="Buy" href="/" />
+          </MenuContent>
+        </MenuRoot>
+
+        <MenuRoot>
+          <MenuTrigger asChild>
+            <Button colorPalette="blue" variant="ghost" size="sm">
+              Explore
+            </Button>
+          </MenuTrigger>
+
+          <MenuContent bgColor="blue.50">
+            <MenuButton value="Token" href="/" />
+            <MenuButton value="Pool" href="/liquidity" />
+            <MenuButton value="Transaction" href="/" />
+          </MenuContent>
+        </MenuRoot>
+
+        <MenuRoot>
+          <MenuTrigger asChild>
+            <Button colorPalette="blue" variant="ghost" size="sm">
+              Stake
+            </Button>
+          </MenuTrigger>
+
+          <MenuContent bgColor="blue.50">
+            <MenuButton value="Stake" href="/" />
+          </MenuContent>
+        </MenuRoot>
+
+        <MenuRoot>
+          <MenuTrigger asChild>
+            <Button colorPalette="blue" variant="ghost" size="sm">
+              Login
+            </Button>
+          </MenuTrigger>
+
+          <MenuContent bgColor="blue.50">
             <MetaMaskButton signer={signer} setSigner={setSigner} />
           </MenuContent>
         </MenuRoot>
