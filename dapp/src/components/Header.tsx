@@ -1,10 +1,9 @@
-import { Box, Button, Flex, Image } from "@chakra-ui/react";
+import { Box, Button, Flex } from "@chakra-ui/react";
 import { MenuContent, MenuRoot, MenuTrigger } from "@/components/ui/menu";
-import { Link } from "react-router-dom";
 import MenuButton from "./MenuButton";
-import MetaMaskButton from "./MetamaskButton";
 import { Dispatch, SetStateAction } from "react";
 import { JsonRpcSigner } from "ethers";
+import MetaMaskButton from "./MetamaskButton";
 
 interface HeaderProps {
   signer: JsonRpcSigner | null;
@@ -13,76 +12,22 @@ interface HeaderProps {
 
 function Header({ signer, setSigner }: HeaderProps) {
   return (
-    <Box as="header" bgColor="gray.100" py={4}>
+    <Box as="header" bgColor="green.200" py={4}>
       <Flex justifyContent="space-between" alignItems="center" maxW={1024} mx="auto">
-        <Box fontSize="2xl" fontWeight="semibold">
-          <Link to="/">
-            <Image src=".\public\bcs.png"></Image>
-          </Link>
+        <Box fontSize="2xl" fontWeight="semibold" color="gray.700">
+          BCSwap
         </Box>
 
         <MenuRoot>
           <MenuTrigger asChild>
-            <Button variant="ghost" colorPalette={"blue"} size="sm">
-              Trade
-            </Button>
-          </MenuTrigger>
-
-          <MenuContent>
-            <MenuButton value="🏛️Swap" href="/liquidity" />
-            <MenuButton value="💰Buy Crypto" href="/" />
-          </MenuContent>
-        </MenuRoot>
-
-        <MenuRoot>
-          <MenuTrigger asChild>
-            <Button variant="ghost" colorPalette={"blue"} size="sm">
-              Explore
-            </Button>
-          </MenuTrigger>
-
-          <MenuContent>
-            <MenuButton value="🏛️Swap" href="/liquidity" />
-            <MenuButton value="💰Buy Crypto" href="/" />
-          </MenuContent>
-        </MenuRoot>
-
-        <MenuRoot>
-          <MenuTrigger asChild>
-            <Button variant="ghost" colorPalette={"blue"} size="sm">
-              <Link to="/stake">Pool</Link>
-            </Button>
-          </MenuTrigger>
-
-          <MenuContent>
-            <MenuButton value="🏛️Swap" href="/liquidity" />
-            <MenuButton value="💰Buy Crypto" href="/" />
-          </MenuContent>
-        </MenuRoot>
-
-        <MenuRoot>
-          <MenuTrigger asChild>
-            <Button variant="ghost" colorPalette={"blue"} size="sm">
-              <Link to="/stake">Stake</Link>
-            </Button>
-          </MenuTrigger>
-
-          <MenuContent>
-            <MenuButton value="🏛️Swap" href="/liquidity" />
-            <MenuButton value="💰Buy Crypto" href="/" />
-          </MenuContent>
-        </MenuRoot>
-
-        <MenuRoot>
-          <MenuTrigger asChild>
-            <Button variant="ghost" colorPalette={"blue"} size="sm">
+            <Button colorPalette="green" variant="ghost" size="sm">
               Menu
             </Button>
           </MenuTrigger>
 
-          <MenuContent>
-            <MenuButton value="🏛️Liquidity pool" href="/liquidity" />
-            <MenuButton value="💰Swap Token" href="/" />
+          <MenuContent bgColor="green.50">
+            <MenuButton value="💰 Swap Token" href="/" />
+            <MenuButton value="🏛️ Liquidity Pool" href="/liquidity" />
             <MetaMaskButton signer={signer} setSigner={setSigner} />
           </MenuContent>
         </MenuRoot>

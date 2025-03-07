@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ethers, JsonRpcSigner } from "ethers";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Contract } from "ethers";
@@ -10,9 +10,11 @@ import LiquidityPoolABI from "@/abis/LiquidityPoolABI.json";
 export interface OutletContext {
   signer: JsonRpcSigner | null;
   setSigner: Dispatch<SetStateAction<JsonRpcSigner | null>>;
-  tokenAContract: Contract;
-  tokenBContract: Contract;
-  liquidityPoolContract: Contract;
+  tokenAContract: Contract | null;
+  tokenBContract: Contract | null;
+  liquidityPoolContract: Contract | null;
+  toggleCurrent: boolean;
+  setToggleCurrent: Dispatch<SetStateAction<boolean>>;
 }
 
 function Layout() {
@@ -20,6 +22,7 @@ function Layout() {
   const [tokenAContract, setTokenAContract] = useState<Contract | null>(null);
   const [tokenBContract, setTokenBContract] = useState<Contract | null>(null);
   const [liquidityPoolContract, setLiquidityPoolContract] = useState<Contract | null>(null);
+  const [toggleCurrent, setToggleCurrent] = useState(true);
 
   useEffect(() => {
     if (!signer) return;
@@ -34,14 +37,18 @@ function Layout() {
   return (
     <>
       <Header signer={signer} setSigner={setSigner} />
-      <Flex justifyContent="center" alignItems="center" my={5}>
-        <Text fontSize={40} fontWeight={"bold"} color={"blue.500"}>
-          TokenA/TokenB
-        </Text>
-      </Flex>
-
-      <Box as="main" bgColor="gray.100" maxW={1024} mx="auto">
-        <Outlet context={{ signer, setSigner, tokenAContract, tokenBContract, liquidityPoolContract }} />
+      <Box as="main" maxW={1024} mx="auto">
+        <Outlet
+          context={{
+            signer,
+            setSigner,
+            tokenAContract,
+            tokenBContract,
+            liquidityPoolContract,
+            toggleCurrent,
+            setToggleCurrent,
+          }}
+        />
       </Box>
     </>
   );

@@ -1,4 +1,4 @@
-import { MenuItem } from "@chakra-ui/react";
+import { MenuItem } from "@/components/ui/menu";
 import { useNavigate } from "react-router-dom";
 
 interface MenuButtonProps {
@@ -14,7 +14,13 @@ function MenuButton({ value, href }: MenuButtonProps) {
   };
 
   return (
-    <MenuItem value={value} onClick={navigatePage}>
+    <MenuItem
+      _hover={{
+        bgColor: "green.200",
+      }}
+      value={value}
+      onClick={navigatePage}
+    >
       {value}
     </MenuItem>
   );

@@ -11,7 +11,7 @@ interface ApproveTokenProps {
 }
 
 function ApproveToken({ tokenName, signer, tokenContract }: ApproveTokenProps) {
-  const [allowanceAmount, setAllowanceAmount] = useState("Please Check Your Approve.");
+  const [allowanceAmount, setAllowanceAmount] = useState("조회 버튼을 클릭해주세요.");
   const [approveAmount, setApproveAmount] = useState("0");
   const [allowanceLoading, setAllowanceLoading] = useState(false);
   const [approveLoading, setApproveLoading] = useState(false);
@@ -58,14 +58,14 @@ function ApproveToken({ tokenName, signer, tokenContract }: ApproveTokenProps) {
         <Text flexGrow={1} ml={3}>
           {allowanceAmount}
         </Text>
-        <Button onClick={allowanceToken} loading={allowanceLoading} loadingText="로딩중" colorPalette="blue">
+        <Button onClick={allowanceToken} loading={allowanceLoading} loadingText="로딩중" colorPalette="green">
           {tokenName} 조회
         </Button>
       </Flex>
       <form onSubmit={approveToken}>
         <Flex gap={4}>
-          <Input value={approveAmount} onChange={(e) => setApproveAmount(e.target.value)} disabled={approveLoading} colorPalette="blue" />
-          <Button type="submit" loading={approveLoading} loadingText="로딩중" colorPalette="blue">
+          <Input value={approveAmount} onChange={(e) => setApproveAmount(e.target.value)} disabled={approveLoading} colorPalette="green" />
+          <Button type="submit" loading={approveLoading} loadingText="로딩중" colorPalette="green">
             {tokenName} 승인
           </Button>
         </Flex>

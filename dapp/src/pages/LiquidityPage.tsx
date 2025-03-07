@@ -2,12 +2,13 @@ import AddLiquidity from "@/components/AddLiquidity";
 import ApproveToken from "@/components/ApproveToken";
 import CurrentLiquidity from "@/components/CurrentLiquidity";
 import { OutletContext } from "@/components/Layout";
+import RemoveLiquidity from "@/components/RemoveLiquidity";
 import useMetamask from "@/hooks/useMetamask";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useOutletContext } from "react-router-dom";
 
 function LiquidityPage() {
-  const { signer, setSigner, tokenAContract, tokenBContract, liquidityPoolContract } = useOutletContext<OutletContext>();
+  const { signer, setSigner, tokenAContract, tokenBContract, liquidityPoolContract, toggleCurrent, setToggleCurrent } = useOutletContext<OutletContext>();
 
   const { connectWallet } = useMetamask(setSigner);
 
@@ -15,7 +16,7 @@ function LiquidityPage() {
     return (
       <Box>
         <Text>BCSwap은 지갑 로그인 후 이용할 수 있습니다.</Text>
-        <Button colorPalette="blue" onClick={connectWallet}>
+        <Button colorPalette="green" onClick={connectWallet}>
           로그인
         </Button>
       </Box>
@@ -24,10 +25,11 @@ function LiquidityPage() {
 
   return (
     <Flex direction="column" spaceY={4} mt={8}>
-      <CurrentLiquidity signer={signer} liquidityPoolContract={liquidityPoolContract} />
+      <CurrentLiquidity signer={signer} liquidityPoolContract={liquidityPoolContract} toggleCurrent={toggleCurrent} />
       <ApproveToken tokenName="Token A" signer={signer} tokenContract={tokenAContract} />
       <ApproveToken tokenName="Token B" signer={signer} tokenContract={tokenBContract} />
-      <AddLiquidity signer={signer} liquidityPoolContract={liquidityPoolContract} />
+      <AddLiquidity signer={signer} liquidityPoolContract={liquidityPoolContract} toggleCurrent={toggleCurrent} setToggleCurrent={setToggleCurrent} />
+      <RemoveLiquidity signer={signer} liquidityPoolContract={liquidityPoolContract} toggleCurrent={toggleCurrent} setToggleCurrent={setToggleCurrent} />
     </Flex>
   );
 }
