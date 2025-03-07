@@ -16,7 +16,7 @@ function LiquidityPage() {
     return (
       <Box>
         <Text>BCSwap은 지갑 로그인 후 이용할 수 있습니다.</Text>
-        <Button colorPalette="green" onClick={connectWallet}>
+        <Button colorPalette="blue" onClick={connectWallet}>
           로그인
         </Button>
       </Box>

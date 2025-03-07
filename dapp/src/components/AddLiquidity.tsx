@@ -40,9 +40,9 @@ function AddLiquidity({ signer, liquidityPoolContract, toggleCurrent, setToggleC
   return (
     <form onSubmit={addLiquidity}>
       <Flex gap={4}>
-        <Input value={tokenAAmount} onChange={(e) => setTokenAAmount(e.target.value)} disabled={isLoading} colorPalette="green" />
-        <Input value={tokenBAmount} onChange={(e) => setTokenBAmount(e.target.value)} disabled={isLoading} colorPalette="green" />
-        <Button type="submit" loading={isLoading} loadingText="로딩중" colorPalette="green">
+        <Input value={tokenAAmount} onChange={(e) => setTokenAAmount(e.target.value)} disabled={isLoading} colorPalette="blue" />
+        <Input value={tokenBAmount} onChange={(e) => setTokenBAmount(e.target.value)} disabled={isLoading} colorPalette="blue" />
+        <Button type="submit" loading={isLoading} loadingText="로딩중" colorPalette="blue">
           LP 토큰 발행 (유동성 추가)
         </Button>
       </Flex>

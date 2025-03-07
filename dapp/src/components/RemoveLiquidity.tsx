@@ -39,8 +39,8 @@ function RemoveLiquidity({ signer, liquidityPoolContract, toggleCurrent, setTogg
   return (
     <form onSubmit={removeLiquidity}>
       <Flex gap={4}>
-        <Input value={liquidityAmount} onChange={(e) => setLiquidityAmount(e.target.value)} disabled={isLoading} colorPalette="green" />
-        <Button type="submit" loading={isLoading} loadingText="로딩중" colorPalette="green">
+        <Input value={liquidityAmount} onChange={(e) => setLiquidityAmount(e.target.value)} disabled={isLoading} colorPalette="blue" />
+        <Button type="submit" loading={isLoading} loadingText="로딩중" colorPalette="blue">
           LP 토큰 정산 (유동성 제거)
         </Button>
       </Flex>

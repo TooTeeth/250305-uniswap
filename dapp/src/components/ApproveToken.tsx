@@ -58,14 +58,14 @@ function ApproveToken({ tokenName, signer, tokenContract }: ApproveTokenProps) {
         <Text flexGrow={1} ml={3}>
           {allowanceAmount}
         </Text>
-        <Button onClick={allowanceToken} loading={allowanceLoading} loadingText="로딩중" colorPalette="green">
+        <Button onClick={allowanceToken} loading={allowanceLoading} loadingText="로딩중" colorPalette="blue">
           {tokenName} 조회
         </Button>
       </Flex>
       <form onSubmit={approveToken}>
         <Flex gap={4}>
-          <Input value={approveAmount} onChange={(e) => setApproveAmount(e.target.value)} disabled={approveLoading} colorPalette="green" />
-          <Button type="submit" loading={approveLoading} loadingText="로딩중" colorPalette="green">
+          <Input value={approveAmount} onChange={(e) => setApproveAmount(e.target.value)} disabled={approveLoading} colorPalette="blue" />
+          <Button type="submit" loading={approveLoading} loadingText="로딩중" colorPalette="blue">
             {tokenName} 승인
           </Button>
         </Flex>

@@ -12,7 +12,7 @@ interface HeaderProps {
 
 function Header({ signer, setSigner }: HeaderProps) {
   return (
-    <Box as="header" bgColor="green.200" py={4}>
+    <Box as="header" bgColor="blue.200" py={4}>
       <Flex justifyContent="space-between" alignItems="center" maxW={1024} mx="auto">
         <Box fontSize="2xl" fontWeight="semibold" color="gray.700">
           BCSwap
@@ -20,12 +20,12 @@ function Header({ signer, setSigner }: HeaderProps) {
 
         <MenuRoot>
           <MenuTrigger asChild>
-            <Button colorPalette="green" variant="ghost" size="sm">
+            <Button colorPalette="blue" variant="ghost" size="sm">
               Menu
             </Button>
           </MenuTrigger>
 
-          <MenuContent bgColor="green.50">
+          <MenuContent bgColor="blue.50">
             <MenuButton value="💰 Swap Token" href="/" />
             <MenuButton value="🏛️ Liquidity Pool" href="/liquidity" />
             <MetaMaskButton signer={signer} setSigner={setSigner} />

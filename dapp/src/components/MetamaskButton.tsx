@@ -18,7 +18,7 @@ function MetaMaskButton({ signer, setSigner }: MetaMaskButtonProps) {
   return signer ? (
     <MenuItem
       _hover={{
-        bgColor: "green.200",
+        bgColor: "blue.200",
       }}
       value={signer.address}
       onClick={disconnectWallet}
@@ -29,7 +29,7 @@ function MetaMaskButton({ signer, setSigner }: MetaMaskButtonProps) {
   ) : (
     <MenuItem
       _hover={{
-        bgColor: "green.200",
+        bgColor: "blue.200",
       }}
       value="🦊 MetaMask Login"
       onClick={connectWallet}

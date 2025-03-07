@@ -16,7 +16,7 @@ function MenuButton({ value, href }: MenuButtonProps) {
   return (
     <MenuItem
       _hover={{
-        bgColor: "green.200",
+        bgColor: "blue.200",
       }}
       value={value}
       onClick={navigatePage}

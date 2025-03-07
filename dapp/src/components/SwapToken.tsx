@@ -99,24 +99,24 @@ function SwapToken({ signer, tokenAContract, tokenBContract, liquidityPoolContra
     <form onSubmit={tokenSwap}>
       <Flex direction={isReverse ? "row" : "row-reverse"} gap={4} alignItems="center" maxW={512} mx="auto">
         <Field label="Token A">
-          <Input colorPalette="green" value={tokenA} onChange={(e) => setTokenA(e.target.value)} disabled={!isReverse} />
+          <Input colorPalette="blue" value={tokenA} onChange={(e) => setTokenA(e.target.value)} disabled={!isReverse} />
         </Field>
         <Flex direction="column" gap={2}>
-          <Button variant="ghost" colorPalette="green" size="2xs" onClick={() => setIsReverse(!isReverse)}>
+          <Button variant="ghost" colorPalette="blue" size="2xs" onClick={() => setIsReverse(!isReverse)}>
             <AiOutlineSwap />
           </Button>
           {isApproved ? (
-            <Button type="submit" loadingText="로딩중" colorPalette="green" size="2xs">
+            <Button type="submit" loadingText="로딩중" colorPalette="blue" size="2xs">
               토큰 스왑
             </Button>
           ) : (
-            <Button loadingText="로딩중" colorPalette="green" size="2xs" onClick={checkApproved}>
+            <Button loadingText="로딩중" colorPalette="blue" size="2xs" onClick={checkApproved}>
               토큰 스왑 승인
             </Button>
           )}
         </Flex>
         <Field label="Token B">
-          <Input colorPalette="green" value={tokenB} onChange={(e) => setTokenB(e.target.value)} disabled={isReverse} />
+          <Input colorPalette="blue" value={tokenB} onChange={(e) => setTokenB(e.target.value)} disabled={isReverse} />
         </Field>
       </Flex>
     </form>
