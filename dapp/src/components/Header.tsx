@@ -29,8 +29,8 @@ function Header({ signer, setSigner }: HeaderProps) {
           </MenuTrigger>
 
           <MenuContent bgColor="blue.50">
-            <MenuButton value="Swap Token" href="/" />
             <MenuButton value="Oder" href="/" />
+            <MenuButton value="Swap Token" href="/swaptoken" />
             <MenuButton value="Send " href="/" />
             <MenuButton value="Buy" href="/" />
           </MenuContent>
